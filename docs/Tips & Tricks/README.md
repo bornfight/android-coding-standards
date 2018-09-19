@@ -1,7 +1,6 @@
 # Tips & tricks
 
-## 1. In DBFlow, for nested OneToMany or ManyToMany relations, the save(), delete() etc. methods will not be called
-##    on the list of related objects. Disable efficientMethods for those methods to be called.
+## 1. In DBFlow, for nested OneToMany or ManyToMany relations, the save(), delete() etc. methods will not be called on the list of related objects. Disable efficientMethods for those methods to be called.
 
 
 ### If there's an Ant object with it's own OneToMany or ManyToMany relation, two outcomes are possible.
