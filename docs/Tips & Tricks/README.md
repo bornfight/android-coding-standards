@@ -49,3 +49,38 @@
 ```
 ### More details about this topic can be found at: https://stackoverflow.com/questions/47359496/kotlin-data-class-copy-method-not-deep-copying-all-members/47361217#47361217
 
+
+
+## 3. Customizing Android X Button?
+
+
+### With the release of the new Android X Support Library, a couple of changes related to component customization have also come to life. For instance, when defining a Button, setting a selector as the background resource will not longer do the job. In fact, it may even result in some unwanted behaviour.
+
+### To fix the issue, background, stroke, text color etc., are now defined with their own selectors, which are joined to button separatelly via proper attributes:
+
+### Text color (button_text.xml):
+```xml
+   <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorAccent" android:state_enabled="false" />
+    <item android:color="@color/white" />
+   </selector>
+```
+### Background color (button_background.xml):
+```xml
+   <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#0000" android:state_enabled="false" />
+    <item android:color="@color/colorAccent" />
+   </selector>
+```
+### Button definition:
+```xml
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textColor="@color/button_text"
+       app:backgroundTint="@color/button_background"
+       app:rippleColor="@color/white"
+       app:strokeColor="@color/colorAccent" />
+```
+
+### More details about this can be found at: https://material.io/develop/android/components/material-button/
