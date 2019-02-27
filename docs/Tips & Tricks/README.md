@@ -30,7 +30,7 @@
       public List<Ant> getMyAnts() { ... }
 ```
 
-
+##
 ## 2. Since Kotlin only does shallow copy, if you're ever in a need of a deep copy, here's how to do it!
 
 
@@ -50,7 +50,7 @@
 ### More details about this topic can be found at: https://stackoverflow.com/questions/47359496/kotlin-data-class-copy-method-not-deep-copying-all-members/47361217#47361217
 
 
-
+##
 ## 3. Customizing Android X Button?
 
 
@@ -84,3 +84,17 @@
 ```
 
 ### More details about this can be found at: https://material.io/develop/android/components/material-button/
+
+
+
+##
+## 4. Updating View Pager Content with ```notifyDataSetChanged()```.
+
+
+### If you have your View Pager displayed, content set, and it's time for update which you plan to do by calling ```notifyDataSetChanged()```, you won't be able to do it (app will still work; content just won't get updated) unless you override the following method in your View Pager adapter:
+```kotlin
+   override fun getItemPosition(obj: Any): Int {
+        // notifyDataSetChanged() won't work unless this method is overridden.
+        return PagerAdapter.POSITION_NONE
+    }
+```
